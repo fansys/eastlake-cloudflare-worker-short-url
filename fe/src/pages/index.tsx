@@ -3,8 +3,6 @@ import axios from "axios";
 import { login } from "./api/workersapi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import Footer from "./components/Footer";
-import ForkMeBadge from "./components/ForkMeBadge";
 
 export default function Home() {
   const [username, setUsername] = useState("");
@@ -47,9 +45,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <ForkMeBadge />
       <h1 className="text-3xl font-bold mb-8" style={{ color: "black" }}>
-        EastLake Short Url System Login
+        Short Url 用户登录
       </h1>
       <form
         className="w-full max-w-lg p-4 bg-white rounded-lg shadow-md"
@@ -60,7 +57,7 @@ export default function Home() {
             htmlFor="username"
             className="block text-gray-700 font-bold mb-2"
           >
-            Username
+            用户名
           </label>
           <input
             type="text"
@@ -77,7 +74,7 @@ export default function Home() {
             htmlFor="password"
             className="block text-gray-700 font-bold mb-2"
           >
-            Password
+            密码
           </label>
           <div className="relative flex items-center">
             <input
@@ -106,11 +103,10 @@ export default function Home() {
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded focus:outline-none focus:shadow-outline mx-auto"
           >
-            Login
+            登录
           </button>
         </div>
       </form>
-      <Footer />
     </div>
   );
 }

@@ -6,8 +6,6 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import ShortUrlList from "./components/ShortUrlList";
 import getConfig from "next/config";
-import Footer from "./components/Footer";
-import ForkMeBadge from "./components/ForkMeBadge";
 
 const { publicRuntimeConfig } = getConfig();
 const baseURL = publicRuntimeConfig.CLOUDFLARE_WORKER_BASE_URL;
@@ -126,7 +124,6 @@ export default function Shorten() {
 
   return (
     <div className="mt-8 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <ForkMeBadge />
       {error && (
         <div className="my-4 p-2 rounded-lg bg-red-100 text-red-800">
           {error}
@@ -147,7 +144,7 @@ export default function Shorten() {
             htmlFor="longUrl"
             className="block text-gray-700 font-bold mb-2"
           >
-            Long URL
+            原始链接
           </label>
           <div className="relative flex items-center">
             <input
@@ -179,7 +176,7 @@ export default function Shorten() {
               htmlFor="shortUrl"
               className="block text-gray-700 font-bold mb-2"
             >
-              Short URL Output
+              短链接
             </label>
             <div className="relative flex items-center">
               <input
@@ -229,7 +226,7 @@ export default function Shorten() {
                   htmlFor="shortUrlLength"
                   className="block text-gray-700 font-bold mb-2"
                 >
-                  Short URL length
+                  链接长度
                 </label>
                 <input
                   type="number"
@@ -255,7 +252,7 @@ export default function Shorten() {
                   onChange={(event) => setRequirePassword(event.target.checked)}
                 />
                 <label htmlFor="requirePassword" className="text-gray-700">
-                  Require Password Authentication
+                  密码验证
                 </label>
               </div>
               {requirePassword && (
@@ -264,7 +261,7 @@ export default function Shorten() {
                     htmlFor="password"
                     className="block text-gray-700 font-bold mb-2"
                   >
-                    Password
+                    密码
                   </label>
                   <input
                     type="text"
@@ -281,7 +278,7 @@ export default function Shorten() {
                   htmlFor="expirationTime"
                   className="block text-gray-700 font-bold mb-2"
                 >
-                  Expiration Time
+                  过期时间
                 </label>
                 <input
                   type="number"
@@ -297,7 +294,7 @@ export default function Shorten() {
                   }
                 />
                 <span className="text-gray-500 ml-2">
-                  minutes (0 means never expires)
+                  分钟 (0 用不过期)
                 </span>
               </div>
             </div>
@@ -308,7 +305,6 @@ export default function Shorten() {
         shortUrls={shortUrls}
         setReloadShortUrls={setReloadShortUrls}
       />
-      <Footer />
     </div>
   );
 }

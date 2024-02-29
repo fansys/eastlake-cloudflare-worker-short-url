@@ -56,7 +56,7 @@ export default function ShortUrlList({ shortUrls, setReloadShortUrls }) {
   const handleDelete = async (shortUrl) => {
     // Display a confirmation dialog before proceeding with deletion
     const shouldDelete = window.confirm(
-      "Are you sure you want to delete this short URL?"
+      "确定删除这个短链接?"
     );
 
     // If the user confirms deletion, proceed with the deletion process
@@ -83,7 +83,7 @@ export default function ShortUrlList({ shortUrls, setReloadShortUrls }) {
   };
   const formatExpirationTime = (expirationTime) => {
     if (expirationTime === 0) {
-      return "NEVER";
+      return "从不";
     }
     const expirationDate = new Date(expirationTime);
     return expirationDate.toLocaleString();
@@ -91,22 +91,18 @@ export default function ShortUrlList({ shortUrls, setReloadShortUrls }) {
 
   return (
     <div className="mt-8">
-      <h2 className="text-xl font-bold text-black mb-2">Short URL List</h2>
+      <h2 className="text-xl font-bold text-black mb-2">链接列表</h2>
       {shortUrls && shortUrls.length > 0 ? (
         <div className="w-full max-h-64 overflow-auto">
           <table className="table-auto w-full">
             <thead>
               <tr>
-                <th className="px-4 text-black py-2 text-center">Short URL</th>
-                <th className="px-4 text-black py-2 text-center">
-                  Origin Long URL
-                </th>
-                <th className="px-4 text-black py-2 text-center">
-                  Expiration Time
-                </th>
-                <th className="px-4 text-black py-2 text-center">Password</th>
-                <th className="px-4 text-black py-2 text-center">Clicks</th>
-                <th className="px-4 text-black py-2 text-center">Actions</th>
+                <th className="px-4 text-black py-2 text-center">短链接</th>
+                <th className="px-4 text-black py-2 text-center">原始链接</th>
+                <th className="px-4 text-black py-2 text-center">过期时间</th>
+                <th className="px-4 text-black py-2 text-center">访问密码</th>
+                <th className="px-4 text-black py-2 text-center">点击数</th>
+                <th className="px-4 text-black py-2 text-center">操作</th>
               </tr>
             </thead>
             <tbody>
@@ -167,7 +163,7 @@ export default function ShortUrlList({ shortUrls, setReloadShortUrls }) {
                       {formatExpirationTime(expirationTime)}
                     </td>
                     <td className="border text-black px-4 py-2 text-center">
-                      {password ? password : "NONE"}
+                      {password ? password : "无密码"}
                     </td>
                     <td className="border text-black px-4 py-2 text-center">
                       {clicks ? clicks : "0"}
@@ -203,7 +199,7 @@ export default function ShortUrlList({ shortUrls, setReloadShortUrls }) {
           </table>
         </div>
       ) : (
-        <p className="text-black">No short URLs found.</p>
+        <p className="text-black">无链接数据</p>
       )}
     </div>
   );
