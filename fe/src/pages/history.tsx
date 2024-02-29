@@ -133,7 +133,7 @@ export default function ClickHistory() {
   };
 
   return (
-    <div className="mt-8 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="pt-8 pb-8 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <ForkMeBadge />{" "}
       <h1 className="text-3xl font-bold text-gray-700 mb-8">
         点击历史: {baseURL}/{shortUrl}
