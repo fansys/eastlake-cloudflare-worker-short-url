@@ -217,7 +217,7 @@ export default function Shorten() {
               setAdvancedSettingsVisible(!advancedSettingsVisible);
             }}
           >
-            {advancedSettingsVisible ? "Hide" : "Advanced Settings"}
+            {advancedSettingsVisible ? "隐藏" : "高级选项"}
           </a>
           {advancedSettingsVisible && (
             <div className="pl-8">
@@ -252,7 +252,7 @@ export default function Shorten() {
                   onChange={(event) => setRequirePassword(event.target.checked)}
                 />
                 <label htmlFor="requirePassword" className="text-gray-700">
-                  密码验证
+                  访问密码
                 </label>
               </div>
               {requirePassword && (
