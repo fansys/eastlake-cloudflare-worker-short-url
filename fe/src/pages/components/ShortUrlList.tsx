@@ -93,7 +93,7 @@ export default function ShortUrlList({ shortUrls, setReloadShortUrls }) {
     <div className="mt-8">
       <h2 className="text-xl font-bold text-black mb-2">链接列表</h2>
       {shortUrls && shortUrls.length > 0 ? (
-        <div className="w-full max-h-64 overflow-auto">
+        <div className="w-full max-h-128 overflow-auto">
           <table className="table-auto w-full">
             <thead>
               <tr>

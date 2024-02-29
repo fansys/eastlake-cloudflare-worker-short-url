@@ -12,7 +12,7 @@ const baseURL = publicRuntimeConfig.CLOUDFLARE_WORKER_BASE_URL;
 
 export default function Shorten() {
   const [longUrl, setLongUrl] = useState("");
-  const [shortUrlLength, setShortUrlLength] = useState(3);
+  const [shortUrlLength, setShortUrlLength] = useState(10);
   const [expirationTime, setExpirationTime] = useState(0);
   const [requirePassword, setRequirePassword] = useState(false);
   const [password, setPassword] = useState("");
@@ -69,22 +69,22 @@ export default function Shorten() {
 
     // Validate parameters
     if (!trimmedUrl || !isValidUrl(trimmedUrl)) {
-      setError("Please enter a URL");
+      setError("请输入长链接");
 
       return;
     }
     if (shortUrlLength < 1 || shortUrlLength > 10) {
-      setError("Short URL length must be between 1 and 10");
+      setError("链接长度需在1-10之间");
       return;
     }
     if (expirationTime < 0 || expirationTime > 1440) {
-      setError("Expiration time must be between 0 and 1440");
+      setError("过期时间需在0-1440之间");
       return;
     }
 
     // Check if password is required and has been entered
     if (requirePassword && !password.trim()) {
-      setError("Password is required");
+      setError("访问密码未设置");
       return;
     }
 
@@ -123,7 +123,7 @@ export default function Shorten() {
   };
 
   return (
-    <div className="mt-8 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="pt-8 pb-8 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       {error && (
         <div className="my-4 p-2 rounded-lg bg-red-100 text-red-800">
           {error}
