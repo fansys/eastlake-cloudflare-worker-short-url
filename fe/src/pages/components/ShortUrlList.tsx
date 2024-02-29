@@ -163,7 +163,7 @@ export default function ShortUrlList({ shortUrls, setReloadShortUrls }) {
                       {formatExpirationTime(expirationTime)}
                     </td>
                     <td className="border text-black px-4 py-2 text-center">
-                      {password ? password : "无密码"}
+                      {password ? password : "无"}
                     </td>
                     <td className="border text-black px-4 py-2 text-center">
                       {clicks ? clicks : "0"}
